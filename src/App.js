@@ -1,10 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import CardList from './components/cardList/CardList';
+import { Row, Col } from 'react-bootstrap';
+import Sidebar from './components/sidebar/SideBar'
 
 function App() {
 
   const [beersArray, setBeersArray] = useState([])
+  const [searchText, setSearchText] = useState('')
+  const [abvZero, setAbvZero] = useState(false)
+  const [selectedBeerData, setSelectedBeerData] = useState(false);
+  const [showFullCard, setShowFullCard] = useState(false);
   
   useEffect(() => {
     fetch('https://api.punkapi.com/v2/beers?per_page=80')
@@ -16,20 +22,38 @@ function App() {
     .then(console.log(beersArray))
 }, [])
 
-  const beerListMap = beersArray.map(b=>
-    b.img_url
-  )
+const handleChange = event => {
+  const input = event.target.value.toLowerCase();
+  setSearchText(input)
+}
 
-  function testFunction(){
-    console.log(beersArray)
+const filterByABVZero = () => {
+  setAbvZero(abvZero)
+}
+
+
+const filterResults = beersArray.filter(result => {
+  let beerHasMatched = true;
+
+  if (searchText) {
+    beerHasMatched = result.name.toLowerCase().includes(searchText);
   }
 
+  if (filterByABVZero) {
+    beerHasMatched = beerHasMatched && result.abv > 0;
+  }
+
+  return beerHasMatched;
+});
+
+
   return (
-    <div className="App">
-      <button onClick={testFunction}>Press me</button>
-      <CardList beerList={beersArray}/>
-      
-    </div>
+
+   <Row>
+        <Col xs={2}><Sidebar searchText={searchText} handleChange={handleChange} filterByABVZero={filterByABVZero}/></Col>
+        <Col xs={9}>
+      <CardList beerList={filterResults} /></Col>
+      </Row>
   );
 }
 

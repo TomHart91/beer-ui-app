@@ -1,0 +1,15 @@
+.filter-menu{
+    padding: 1rem;
+}
+#name-search {
+    margin-bottom: 1rem;
+}
+.filter-check{ 
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.filter-check input {
+    margin-left: 1rem;
+    margin-right: 0.5rem;
+}

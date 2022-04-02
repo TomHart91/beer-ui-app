@@ -1,0 +1,38 @@
+.beer-card {
+    background-color: white;
+    border: 1px solid #9ca8bd;
+    border-radius: 20px;
+    padding: 20px 15px;
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    justify-content: center;
+    height: 19rem;
+    text-align: center;
+    color: #222831;
+    width: 12rem;
+}
+.beer-card:hover{
+    cursor: pointer;
+    /*Add hover effect - transform*/
+}
+.card-img-div{
+    height: 10rem;
+}
+.card-img{
+    height: 10rem;
+}
+.beer-title{
+    margin-top: 0.4rem;
+    color: #00A6CD;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 10rem;
+    height: 2rem;
+}
+.point8 {
+    font-size: 0.8rem;
+}
+
