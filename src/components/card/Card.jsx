@@ -22,7 +22,7 @@ const Card = (props) => {
             </div>
             <Row className="beer-title py-0" title={name}>{name}</Row>
             <Row class="point8">Abv: {abv}</Row>
-            <Row class="point8">Vol:{vol + ' ' + unit}</Row>
+            <Row class="point8">Vol: {vol + ' ' + unit}</Row>
             <Row class="point8">Yeast: {yeast}</Row>
 
         </div>

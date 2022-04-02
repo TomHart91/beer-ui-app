@@ -7,14 +7,14 @@
     grid-template-columns: 1fr;
     justify-items: center;
     justify-content: center;
-    height: 19rem;
+    height: 20rem;
     text-align: center;
     color: #222831;
     width: 12rem;
 }
 .beer-card:hover{
     cursor: pointer;
-    /*Add hover effect - transform*/
+    transform: scale(1.05);
 }
 .card-img-div{
     height: 10rem;
@@ -31,6 +31,7 @@
     overflow: hidden;
     width: 10rem;
     height: 2rem;
+    justify-content: center;
 }
 .point8 {
     font-size: 0.8rem;

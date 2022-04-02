@@ -3,6 +3,11 @@
 }
 #name-search {
     margin-bottom: 1rem;
+    border-bottom: 2px solid #00A6CD;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    outline: none;
 }
 .filter-check{ 
     display: flex;

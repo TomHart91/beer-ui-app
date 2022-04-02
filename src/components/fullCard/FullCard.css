@@ -4,7 +4,7 @@
     right:0px;
     bottom:0px;
     left:0px;
-    background-color: rgba(0, 0, 0, 0.2);
+    /* background-color: rgba(0, 0, 0, 0.2); */
 }
 
 .beer-info {
@@ -30,7 +30,8 @@
 
 .name-row{
     color: #00A6CD;
-    font-size: 20px
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .titles{

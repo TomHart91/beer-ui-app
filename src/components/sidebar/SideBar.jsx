@@ -1,16 +1,15 @@
 import React from 'react'
 import './SideBar.css'
-
-import { Row, Col } from 'react-bootstrap';
-
+import Search from './search.svg'
 
 const SideBar = (props) => {
 
-    const {searchText, handleChange, filterByABVZero } = props
+    const {searchText, handleChange, filterByABVZero, filterByABVOne, filterByABVTwo, filterByABVThree, filterByABVFour, filterByABVFive } = props
 
     return (
       <div class='filter-menu'>
-        <input type="text" id="name-search" value={searchText} onChange={handleChange} placeholder="Search by name..."/>
+        {/* <img src={Search} height="20rem" width="20rem"/> */}
+        <input type="text" id="name-search" value={searchText} onChange={handleChange} placeholder="Search by name..."/>  
         <br/>
         <span>Filter by ABV</span>
         <div class="filter-check">
@@ -18,24 +17,24 @@ const SideBar = (props) => {
           <label htmlFor="abvZero">0-1%</label>
         </div>
         <div class="filter-check">
-          <input onClick={filterByABVZero} type="checkbox" id="abv1" name="abv1" />
-          <label htmlFor="abv1">1-2%</label>
+          <input onClick={filterByABVOne} type="checkbox" id="abvOne" name="abvOne" />
+          <label htmlFor="abvOne">1-2%</label>
         </div>
         <div class="filter-check">
-          <input onClick={filterByABVZero} type="checkbox" id="abv2" name="abv2" />
-          <label htmlFor="abv2">2-3%</label>
+          <input onClick={filterByABVTwo} type="checkbox" id="abvTwo" name="abvTwo" />
+          <label htmlFor="abvTwo">2-3%</label>
         </div>
         <div class="filter-check">
-          <input onClick={filterByABVZero} type="checkbox" id="abv3" name="abv3" />
-          <label htmlFor="abv3">3-4%</label>
+          <input onClick={filterByABVThree} type="checkbox" id="abvThree" name="abvThree" />
+          <label htmlFor="abvThree">3-4%</label>
         </div>
         <div class="filter-check">
-          <input onClick={filterByABVZero} type="checkbox" id="abv4" name="abv4" />
-          <label htmlFor="abv4">4-5%</label>
+          <input onClick={filterByABVFour} type="checkbox" id="abvFour" name="abvFour" />
+          <label htmlFor="abvFour">4-5%</label>
         </div>
         <div class="filter-check">
-          <input onClick={filterByABVZero} type="checkbox" id="abv5" name="abv5" />
-          <label htmlFor="abv5">5% +</label>
+          <input onClick={filterByABVFive} type="checkbox" id="abvFive" name="abvFive" />
+          <label htmlFor="abvFive">5% +</label>
         </div>
 
       </div>

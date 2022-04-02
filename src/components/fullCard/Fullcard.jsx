@@ -23,8 +23,8 @@ const FullCard = (props) => {
             <Row className="info"><Col xs={6}>{yeast}</Col><Col>{malt}</Col><Col>{hops}</Col></Row>
 
             <Row className="descrition">{description}</Row>
-            <Row className="info"><b>Food Pairing:</b>{food}</Row>
-            <Row><b>Brewery Tips:</b> {brewery}</Row>
+            <Row className="info"><p><span className="titles">Food Pairing:</span> {food}</p></Row>
+            <Row><p><span className="titles">Brewery Tips:</span> {brewery}</p></Row>
            
         </div>  
         </div>
