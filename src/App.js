@@ -4,7 +4,6 @@ import CardList from './components/cardList/CardList';
 import { Row, Col } from 'react-bootstrap';
 import Sidebar from './components/sidebar/SideBar'
 import { TopBar } from './components/topBar/TopBar';
-import PageSelector from './components/pageSelector/PageSelector';
 
 function App() {
 
@@ -129,9 +128,8 @@ const filterResults = beersArray.filter(result => {
       </Col>
     
       <Col xs={3} className="mx-0">
-      {sideMenu && (
-       <div style={{backgroundColor:"black"}}>Hello there</div>
-       )}
+      {/* {sideMenu && (
+       )} */}
       </Col>
     </Row>
   );
