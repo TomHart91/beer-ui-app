@@ -10,11 +10,10 @@ const SideBar = (props) => {
     return (
       <div class='filter-menu'>
         <div className="page-selector">
-          <span className="unselected-page"onClick={prevPageFunc}>{(prevPage) == 0 ? '-' : prevPage}</span>
+          <span className="unselected-page"onClick={prevPageFunc}>{(prevPage) === 0 ? '-' : prevPage}</span>
           <span className="selected-page">{currentPage}</span>
-          <span className="unselected-page" onClick={nextPageFunc}>{(nextPage) == 12 ? '-' : nextPage}</span>
+          <span className="unselected-page" onClick={nextPageFunc}>{(nextPage) === 12 ? '-' : nextPage}</span>
         </div>
-        {/* <img src={Search} height="20rem" width="20rem"/> */}
         <input type="text" id="name-search" value={searchText} onChange={handleChange} placeholder="Search by name..."/>  
         <br/>
         <span>Filter by ABV</span>

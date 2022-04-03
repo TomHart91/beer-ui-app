@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import './App.css';
 import CardList from './components/cardList/CardList';
 import { Row, Col } from 'react-bootstrap';
 import Sidebar from './components/sidebar/SideBar'
@@ -8,29 +7,31 @@ import BrewersSideBar from './components/brewersSideBar/BrewersSideBar';
 
 function App() {
 
-  const [beersArray, setBeersArray] = useState([])
-  const [searchText, setSearchText] = useState('')
-  const [abvZero, setAbvZero] = useState(false)
-  const [abvOne, setAbvOne] = useState(false)
-  const [abvTwo, setAbvTwo] = useState(false)
-  const [abvThree, setAbvThree] = useState(false)
-  const [abvFour, setAbvFour] = useState(false)
-  const [abvFive, setAbvFive] = useState(false)
-  const [page, setPage] = useState(1)
-  const [prevPage, setPrevPage] = useState(0)
-  const [nextPage, setNextPage]= useState(2);
-  const [sideMenu, setSideMenu] = useState(false)
+//States
+const [beersArray, setBeersArray] = useState([])
+const [searchText, setSearchText] = useState('')
+const [abvZero, setAbvZero] = useState(false)
+const [abvOne, setAbvOne] = useState(false)
+const [abvTwo, setAbvTwo] = useState(false)
+const [abvThree, setAbvThree] = useState(false)
+const [abvFour, setAbvFour] = useState(false)
+const [abvFive, setAbvFive] = useState(false)
+const [page, setPage] = useState(1)
+const [prevPage, setPrevPage] = useState(0)
+const [nextPage, setNextPage]= useState(2);
+const [sideMenu, setSideMenu] = useState(false)
 
-  
-  useEffect(() => {
-    fetch(`https://api.punkapi.com/v2/beers?page=${page}&per_page=15`)
-    .then(response => {return response.json()})
-    .then(jsonObject => {
-        const beersObj = jsonObject;
-        setBeersArray(beersObj)
-    })
-}, [page])
+//Api called here  
+useEffect(() => {
+  fetch(`https://api.punkapi.com/v2/beers?page=${page}&per_page=15`)
+  .then(response => {return response.json()})
+  .then(jsonObject => {
+      const beersObj = jsonObject;
+      setBeersArray(beersObj)
+  })
+},[page])
 
+//Search bar function
 const handleChange = e => {
   const input = e.target.value.toLowerCase();
   setSearchText(input)
@@ -38,7 +39,7 @@ const handleChange = e => {
 
 //Page Functions
 function prevPageFunc(){
-  if(prevPage-1 != -1){
+  if(prevPage-1 !== -1){
     setPage(page-1)
     setPrevPage(prevPage-1)
     setNextPage(nextPage-1)
@@ -47,13 +48,14 @@ function prevPageFunc(){
 
 //Data breaks on page 13 not sure why this is happening and will have to look at it further
 function nextPageFunc(){
-  if(nextPage+1 != 13){
+  if(nextPage+1 !== 13){
     setPage(page+1)
     setPrevPage(prevPage+1)
     setNextPage(nextPage+1)
   }
 }
 
+//Check boxes Functions - need to look into cleaning it up
 const filterByABVZero = () => {
   setAbvZero(!abvZero)
 }
@@ -78,6 +80,7 @@ const filterByABVFive = () => {
   setAbvFive(!abvFive)
 }
 
+//filtered results
 const filterResults = beersArray.filter(result => {
   let beerHasMatched = true;
 
@@ -111,9 +114,12 @@ const filterResults = beersArray.filter(result => {
   
   return beerHasMatched;
 });
-  function burgerMenu(){
-    setSideMenu(!sideMenu);
-  }
+
+//burger menu
+function burgerMenu(){
+  setSideMenu(!sideMenu);
+}
+
   return (
    <Row className="mx-0">
      <Row className="mx-0"><TopBar burgerMenu={burgerMenu}/></Row>
@@ -128,9 +134,9 @@ const filterResults = beersArray.filter(result => {
         <CardList beerList={filterResults} />
       </Col>
       {sideMenu && (
-      <Col xs={3} className="mx-0">
-        <BrewersSideBar />
-      </Col>
+        <Col xs={3} className="mx-0">
+          <BrewersSideBar />
+        </Col>
        )}
     </Row>
   );

@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './Card.css'
-import { Row, Col } from 'react-bootstrap';
+import { Row } from 'react-bootstrap';
 import FullCard from '../fullCard/Fullcard'
 
 
@@ -23,7 +23,6 @@ const Card = (props) => {
             <Row class="point8">Abv: {abv}</Row>
             <Row class="point8">Vol: {vol + ' ' + unit}</Row>
             <Row class="point8">Yeast: {yeast}</Row>
-
         </div>
             {beerSelectedDetails && (       
                 <FullCard img={img} name={name} vol={vol} malt={malt} abv={abv} hops={hops} 
@@ -31,9 +30,6 @@ const Card = (props) => {
             )}
      </>
     )
-
-
-   
 }
 
 export default Card

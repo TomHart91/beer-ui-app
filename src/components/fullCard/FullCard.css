@@ -4,9 +4,7 @@
     right:0px;
     bottom:0px;
     left:0px;
-    /* background-color: rgba(0, 0, 0, 0.2); */
 }
-
 .beer-info {
     width: 500px;
     height: auto;
@@ -20,30 +18,25 @@
    border: 3px solid #00A6CD;
    border-radius: 10px;
 }
-
 .card-img-full-card{
     height: 200px;
     width: 100px;
     padding-right: 10px;
     border-right: 3px solid #666666
 }
-
 .name-row{
     color: #00A6CD;
     font-size: 20px;
     font-weight: bold;
 }
-
 .titles{
     text-align: start;
     font-weight: bold;
     color: #666666
 }
-
 .info{
     text-align: start;
 }
-
 .descrition{
     background-color: #00A6CD;
     color: #fff

@@ -1,16 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './FullCard.css'
 import { Row, Col, Container } from 'react-bootstrap';
 
 
 const FullCard = (props) => {
     const {img, name, vol, malt, abv, hops, yeast, id, description, food, brewery, clickFunction } = props
-
     return (
         <Container>
         <div className="container" onClick={clickFunction}>
-        <div className="beer-info" id={id} >
-            
+        <div className="beer-info" id={id} >          
            <Row>
                 <Col xs={3} className="flex-start"><img src={img} className="card-img-full-card" alt="" /></Col>
                 <Col xs={9} className="ps-3">
@@ -21,7 +19,6 @@ const FullCard = (props) => {
             </Row>
             <Row className="titles"><Col  xs={6}>Yeast: </Col><Col>Malt: </Col><Col>Hops:</Col></Row>
             <Row className="info"><Col xs={6}>{yeast}</Col><Col>{malt}</Col><Col>{hops}</Col></Row>
-
             <Row className="descrition">{description}</Row>
             <Row className="info"><p><span className="titles">Food Pairing:</span> {food}</p></Row>
             <Row><p><span className="titles">Brewery Tips:</span> {brewery}</p></Row>

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Row, Col } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Row } from 'react-bootstrap';
 import './BrewersSideBar.css'
 import DownArrow from './down-arrow.svg'
 
@@ -17,7 +17,7 @@ export default function BrewersSideBar(){
         <div className="brewers-bar-container">
             <div className="brewers-menu">
             <Row> <input type="text" id="name-search" value={searchText} onChange={handleChange} placeholder="Find a Brewery..."/></Row>
-            <Row className="brewers-menu-items" onClick={()=>showBreweries(!breweries)}><p>breweries  <img src={DownArrow} height="20px" width="20px"/></p></Row>
+            <Row className="brewers-menu-items" onClick={()=>showBreweries(!breweries)}><p>breweries  <img src={DownArrow} height="20px" width="20px" alt="down arrow"/></p></Row>
             {breweries && (
             <div>
                 {filteredBreweries.map(breweries=>
