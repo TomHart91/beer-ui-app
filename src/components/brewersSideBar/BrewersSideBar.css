@@ -1,0 +1,29 @@
+.brewers-bar-container{
+    background-color: #fff;
+    height: 100vh;
+    position: absolute;
+    padding-left: 2em;
+}
+.brewers-menu{
+    padding-left: 1rem;
+    font-size: 1.5rem;
+    color:#00A6CD;
+}
+.brewers-menu-items{
+    padding-top:0.5em;
+    padding-bottom:0.5em;
+}
+.brewers-menu-items:hover{
+    color: #fff;
+    background-color: #70CDE3;
+    cursor: pointer;
+}
+.brewery-sub-menu{
+    font-size:1rem;
+    padding-left:1em;
+    border-left: 3px solid #707070
+}
+.brewery-sub-menu:hover{
+    font-weight: bold;
+    cursor: pointer;
+}

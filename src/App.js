@@ -4,6 +4,7 @@ import CardList from './components/cardList/CardList';
 import { Row, Col } from 'react-bootstrap';
 import Sidebar from './components/sidebar/SideBar'
 import { TopBar } from './components/topBar/TopBar';
+import BrewersSideBar from './components/brewersSideBar/BrewersSideBar';
 
 function App() {
 
@@ -126,11 +127,11 @@ const filterResults = beersArray.filter(result => {
       <Col xs={7} className="mx-0">
         <CardList beerList={filterResults} />
       </Col>
-    
+      {sideMenu && (
       <Col xs={3} className="mx-0">
-      {/* {sideMenu && (
-       )} */}
+        <BrewersSideBar />
       </Col>
+       )}
     </Row>
   );
 }
