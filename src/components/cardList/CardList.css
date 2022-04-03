@@ -1,8 +1,7 @@
 .main {
     display: grid;
-    width: 80%;
+    width: 75%;
     margin: 5vh auto;
     grid-template-columns: repeat(5, 1fr);
     gap: 1vw;
-
 }

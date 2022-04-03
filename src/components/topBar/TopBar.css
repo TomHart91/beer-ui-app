@@ -12,3 +12,6 @@
 .brew-dog-img{
     justify-content: center;
 }
+.burger-menu:hover{
+    cursor: pointer;
+}

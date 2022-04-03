@@ -4,6 +4,7 @@ import CardList from './components/cardList/CardList';
 import { Row, Col } from 'react-bootstrap';
 import Sidebar from './components/sidebar/SideBar'
 import { TopBar } from './components/topBar/TopBar';
+import PageSelector from './components/pageSelector/PageSelector';
 
 function App() {
 
@@ -15,21 +16,42 @@ function App() {
   const [abvThree, setAbvThree] = useState(false)
   const [abvFour, setAbvFour] = useState(false)
   const [abvFive, setAbvFive] = useState(false)
-  const [selectedBeerData, setSelectedBeerData] = useState(false);
-  const [showFullCard, setShowFullCard] = useState(false);
+  const [page, setPage] = useState(1)
+  const [prevPage, setPrevPage] = useState(0)
+  const [nextPage, setNextPage]= useState(2);
+  const [sideMenu, setSideMenu] = useState(false)
+
   
   useEffect(() => {
-    fetch('https://api.punkapi.com/v2/beers?per_page=80')
+    fetch(`https://api.punkapi.com/v2/beers?page=${page}&per_page=15`)
     .then(response => {return response.json()})
     .then(jsonObject => {
         const beersObj = jsonObject;
         setBeersArray(beersObj)
     })
-}, [])
+}, [page])
 
-const handleChange = event => {
-  const input = event.target.value.toLowerCase();
+const handleChange = e => {
+  const input = e.target.value.toLowerCase();
   setSearchText(input)
+}
+
+//Page Functions
+function prevPageFunc(){
+  if(prevPage-1 != -1){
+    setPage(page-1)
+    setPrevPage(prevPage-1)
+    setNextPage(nextPage-1)
+  }
+}
+
+//Data breaks on page 13 not sure why this is happening and will have to look at it further
+function nextPageFunc(){
+  if(nextPage+1 != 13){
+    setPage(page+1)
+    setPrevPage(prevPage+1)
+    setNextPage(nextPage+1)
+  }
 }
 
 const filterByABVZero = () => {
@@ -89,18 +111,29 @@ const filterResults = beersArray.filter(result => {
   
   return beerHasMatched;
 });
-
-
+  function burgerMenu(){
+    setSideMenu(!sideMenu);
+  }
   return (
-
-   <Row>
-     <Row><TopBar/></Row>
-        <Col xs={2}><Sidebar searchText={searchText} handleChange={handleChange} filterByABVZero={filterByABVZero} filterByABVOne={filterByABVOne}
+   <Row className="mx-0">
+     <Row className="mx-0"><TopBar burgerMenu={burgerMenu}/></Row>
+     
+      <Col xs={2} className="mx-0">
+        <Sidebar searchText={searchText} handleChange={handleChange} filterByABVZero={filterByABVZero} filterByABVOne={filterByABVOne}
         filterByABVTwo={filterByABVTwo} filterByABVThree={filterByABVThree} filterByABVFour={filterByABVFour} filterByABVFive={filterByABVFive}
-        /></Col>
-        <Col xs={9}>
-      <CardList beerList={filterResults} /></Col>
-      </Row>
+        prevPage={prevPage} nextPage={nextPage} currentPage={page} prevPageFunc={prevPageFunc} nextPageFunc={nextPageFunc}
+        />
+      </Col>
+      <Col xs={7} className="mx-0">
+        <CardList beerList={filterResults} />
+      </Col>
+    
+      <Col xs={3} className="mx-0">
+      {sideMenu && (
+       <div style={{backgroundColor:"black"}}>Hello there</div>
+       )}
+      </Col>
+    </Row>
   );
 }
 

@@ -1,13 +1,19 @@
+//This page does not use react bootstrap to demonstrate that I am not reliant on it - Tom H
 import React from 'react'
 import './SideBar.css'
-import Search from './search.svg'
 
 const SideBar = (props) => {
 
-    const {searchText, handleChange, filterByABVZero, filterByABVOne, filterByABVTwo, filterByABVThree, filterByABVFour, filterByABVFive } = props
+    const {searchText, handleChange, filterByABVZero, filterByABVOne, filterByABVTwo, filterByABVThree, filterByABVFour, filterByABVFive,
+      prevPage, currentPage, nextPage, prevPageFunc, nextPageFunc } = props
 
     return (
       <div class='filter-menu'>
+        <div className="page-selector">
+          <span className="unselected-page"onClick={prevPageFunc}>{(prevPage) == 0 ? '-' : prevPage}</span>
+          <span className="selected-page">{currentPage}</span>
+          <span className="unselected-page" onClick={nextPageFunc}>{(nextPage) == 12 ? '-' : nextPage}</span>
+        </div>
         {/* <img src={Search} height="20rem" width="20rem"/> */}
         <input type="text" id="name-search" value={searchText} onChange={handleChange} placeholder="Search by name..."/>  
         <br/>

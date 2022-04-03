@@ -5,7 +5,6 @@ import FullCard from '../fullCard/Fullcard'
 
 
 const Card = (props) => {
-    const [beerSelected, setSelectedBeer] = useState({})
     const [beerSelectedDetails, setSelectedBeerDetails] = useState(false)
 
     const {img, name, vol, malt, abv, hops, yeast, id, description, food, brewery, unit} = props
