@@ -41,3 +41,9 @@
     background-color: #00A6CD;
     color: #fff
 }
+@media only screen and (max-width: 600px) {
+    .beer-info {
+       width: auto;
+       height: auto;
+    }
+}

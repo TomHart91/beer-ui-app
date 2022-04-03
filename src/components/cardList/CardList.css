@@ -1,7 +1,15 @@
-.main {
+.beer-grid {
     display: grid;
     width: 75%;
     margin: 5vh auto;
     grid-template-columns: repeat(5, 1fr);
     gap: 1vw;
+}
+@media only screen and (max-width: 600px) {
+    .beer-grid {
+        width: 90%;
+        grid-template-columns: 1fr;
+        gap: 5vh;
+        padding-top: 10rem;
+    }
 }

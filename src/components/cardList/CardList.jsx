@@ -11,7 +11,7 @@ const CardList = (props) => {
         brewery={b.brewers_tips}clickFunction={clickFunction}/>
     ) 
     return(
-        <div className="main">
+        <div className="beer-grid">
             {listOfBeers}     
         </div>
     )

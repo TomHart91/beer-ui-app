@@ -36,5 +36,20 @@
     color:#00A6CD;
     font-size: 3rem;
     text-decoration: underline;
-   
+}
+@media only screen and (max-width: 600px) {
+    .filter-check {
+        display:none
+    }
+    .filter-by-abv-title{
+        display: none;
+    }
+    .unselected-page{
+        z-index:999;
+        padding-left: 10px;
+        padding-right:10px
+    }
+    #name-search{
+        z-index:999;
+    }
 }
