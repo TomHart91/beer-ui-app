@@ -14,3 +14,5 @@ The App has the following features:
 ## Running Locally
 
 Open your terminal after clnging the repo and enter `npm install` (you willl need node) once installation is complete you may use `npm start` to begin the app. It should automatically open a new tab and run on `http://localhost:3000/`
+
+![scrrenshot](./src/beer-ui-overview.png)
